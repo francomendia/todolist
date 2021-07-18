@@ -1,0 +1,64 @@
+{% include 'header.html' %}
+
+<div class="container mt-3">
+
+    <div class="card">
+
+        <div class="card-header mb-3">
+            <h3>Tarea</h3>
+        </div>
+        <div class="card-body">
+
+            {% for tarea in tasks %}
+
+            <div class="mb-5">
+                <h4>Título:</h4>
+                <h3>{{tarea[1]}}</h3>
+            </div>
+
+            <div class="mb-5">
+                <h4>Descripción:</h4>
+                <p>{{tarea[2]}}</p>
+            </div>
+
+            <div class="mb-5">
+                <h4>Creada:</h4>
+                <p>{{tarea[4]}}</p>
+            </div>
+
+            {% if tarea[3] == 1 %}
+            <div class="alert alert-danger" role="alert">
+                Tarea urgente e importante
+            </div>
+            {% endif %}
+
+            {% if tarea[3] == 2 %}
+            <div class="alert alert-warning" role="alert">
+                Tarea urgente
+            </div>
+            {% endif %}
+
+            {% if tarea[3] == 3 %}
+            <div class="alert alert-info" role="alert">
+                Tarea importante
+            </div>
+            {% endif %}
+
+            {% if tarea[3] == 4 %}
+            <div class="alert alert-secondary" role="alert">
+                Tarea ni urgente ni importante
+            </div>
+            {% endif %}
+
+
+            {% endfor %}
+
+            <a class="btn bt-primary" href="{{url_for('index')}}">Regresar</a>
+
+
+        </div>
+    </div>
+
+</div>
+
+{% include 'footer.html' %}

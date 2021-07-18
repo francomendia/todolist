@@ -1,0 +1,106 @@
+{% include 'header.html' %}
+
+<div class="container mt-3">
+
+    {% with messages = get_flashed_messages() %}
+
+    {% if messages %}
+    <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+        {% for message in messages %}
+        {{message}}
+        {% endfor %}
+        <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endif %}
+
+    {% endwith %}
+
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="alert alert-danger">
+                <h4>Urgentes e importantes</h4>
+            </div>
+            {% for tarea in tasks %}
+            {% if tarea[3] == 1 %}
+            <div class="d-flex flex-row justify-content-between mb-3">
+                <li class="list-group-item col">{{tarea[1]}}</li>
+                <div class="col-4 d-flex justify-content-evenly align-items-center">
+                    <a class="btn btn-outline-primary btn-sm" href="/task/{{tarea[0]}}">Ver</a>
+                    <a class="btn btn-outline-success btn-sm" href="/edit/{{tarea[0]}}">Editar</a>
+                    <a class="btn btn-outline-danger btn-sm" href="/destroy/{{tarea[0]}}"
+                        onclick="return confirm('Confirma que desea eliminar la tarea?')">X</a>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+
+
+        </div>
+
+        <div class="col-lg-6">
+            <div class="alert alert-warning">
+                <h4>Urgentes</h4>
+            </div>
+            {% for tarea in tasks %}
+            {% if tarea[3] == 2 %}
+            <div class="d-flex flex-row justify-content-between mb-3">
+                <li class="list-group-item col">{{tarea[1]}}</li>
+                <div class="col-4 d-flex justify-content-evenly align-items-center">
+                    <a class="btn btn-outline-primary btn-sm" href="/task/{{tarea[0]}}">Ver</a>
+                    <a class="btn btn-outline-success btn-sm" href="/edit/{{tarea[0]}}">Editar</a>
+                    <a class="btn btn-outline-danger btn-sm" href="/destroy/{{tarea[0]}}"
+                        onclick="return confirm('Confirma que desea eliminar la tarea?')">X</a>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="row mt-lg-5">
+        <div class="col-lg-6">
+            <div class="alert alert-info">
+                <h4>Importantes</h4>
+            </div>
+            {% for tarea in tasks %}
+            {% if tarea[3] == 3 %}
+            <div class="d-flex flex-row justify-content-between mb-3">
+                <li class="list-group-item col">{{tarea[1]}}</li>
+                <div class="col-4 d-flex justify-content-evenly align-items-center">
+                    <a class="btn btn-outline-primary btn-sm" href="/task/{{tarea[0]}}">Ver</a>
+                    <a class="btn btn-outline-success btn-sm" href="/edit/{{tarea[0]}}">Editar</a>
+                    <a class="btn btn-outline-danger btn-sm" href="/destroy/{{tarea[0]}}"
+                        onclick="return confirm('Confirma que desea eliminar la tarea?')">X</a>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+
+
+        </div>
+
+        <div class="col-lg-6">
+            <div class="alert alert-secondary">
+                <h4>Ni urgentes ni importantes (Delegar)</h4>
+            </div>
+            {% for tarea in tasks %}
+            {% if tarea[3] == 4 %}
+            <div class="d-flex flex-row justify-content-between mb-3">
+                <li class="list-group-item col">{{tarea[1]}}</li>
+                <div class="col-4 d-flex justify-content-evenly align-items-center">
+                    <a class="btn btn-outline-primary btn-sm" href="/task/{{tarea[0]}}">Ver</a>
+                    <a class="btn btn-outline-success btn-sm" href="/edit/{{tarea[0]}}">Editar</a>
+                    <a class="btn btn-outline-danger btn-sm" href="/destroy/{{tarea[0]}}"
+                        onclick="return confirm('Confirma que desea eliminar la tarea?')">X</a>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+
+
+        </div>
+    </div>
+
+</div>
+
+{% include 'footer.html' %}
