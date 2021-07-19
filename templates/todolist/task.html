@@ -23,37 +23,37 @@
 
             <div class="mb-5">
                 <h4>Creada:</h4>
-                <p>{{tarea[4]}}</p>
+                <p>{{fecha}}</p>
             </div>
 
             {% if tarea[3] == 1 %}
-            <div class="alert alert-danger" role="alert">
-                Tarea urgente e importante
+            <div class="alert alert-danger text-center text-uppercase" role="alert">
+                <h5>Tarea urgente e importante</h5>
             </div>
             {% endif %}
 
             {% if tarea[3] == 2 %}
-            <div class="alert alert-warning" role="alert">
-                Tarea urgente
+            <div class="alert alert-warning text-center text-uppercase" role="alert">
+                <h5>Tarea urgente</h5>
             </div>
             {% endif %}
 
             {% if tarea[3] == 3 %}
-            <div class="alert alert-info" role="alert">
-                Tarea importante
+            <div class="alert alert-info text-center text-uppercase" role="alert">
+                <h5>Tarea importante</h5>
             </div>
             {% endif %}
 
             {% if tarea[3] == 4 %}
-            <div class="alert alert-secondary" role="alert">
-                Tarea ni urgente ni importante
+            <div class="alert alert-secondary text-center text-uppercase" role="alert">
+                <h5>Tarea ni urgente ni importante</h5>
             </div>
             {% endif %}
 
 
             {% endfor %}
 
-            <a class="btn bt-primary" href="{{url_for('index')}}">Regresar</a>
+            <a class="btn btn-secondary" href="{{url_for('index')}}">Regresar</a>
 
 
         </div>

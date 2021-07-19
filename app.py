@@ -32,11 +32,9 @@ def task(id):
     cursor.execute("SELECT * FROM `to_do_list`.`task` WHERE id=%s", (id))
     task=cursor.fetchall()
     fecha = task[0][4]
-    # Tratar de llevar la fecha legible al template
     fecha_legible = fecha.strftime('%d/%m/%Y %H:%M')
-    #
     conn.commit()
-    return render_template('todolist/task.html', tasks=task)
+    return render_template('todolist/task.html', tasks=task, fecha=fecha_legible)
 
 
 @app.route('/create')
@@ -101,6 +99,14 @@ def destroy(id):
     cursor.execute("DELETE FROM `to_do_list`.`task` WHERE id=%s", (id))
     conn.commit()
     flash('Tarea eliminada con éxito')
+    return redirect('/')
+
+@app.route('/complete/<int:id>')
+def complete(id):
+    conn = mysql.connect()
+    cursor = conn.cursor()
+    cursor.execute("UPDATE `to_do_list`.`task` SET `type`=5 WHERE id=%s;", (id))
+    conn.commit()
     return redirect('/')
 
 
