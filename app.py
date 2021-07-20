@@ -9,7 +9,7 @@ app.secret_key="EstaEsLaClaveSecreta"
 mysql = MySQL()
 app.config['MYSQL_DATABASE_HOST']='localhost'
 app.config['MYSQL_DATABASE_USER']='root'
-app.config['MYSQL_DATABASE_PASSWORD']=''
+app.config['MYSQL_DATABASE_PASSWORD']='Chirola02'
 app.config['MYSQL_DATABASE_BD']='to_do_list'
 mysql.init_app(app)
 

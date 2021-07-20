@@ -11,21 +11,6 @@
 
             {% for tarea in tasks %}
 
-            <div class="mb-5">
-                <h4>Título:</h4>
-                <h3>{{tarea[1]}}</h3>
-            </div>
-
-            <div class="mb-5">
-                <h4>Descripción:</h4>
-                <p>{{tarea[2]}}</p>
-            </div>
-
-            <div class="mb-5">
-                <h4>Creada:</h4>
-                <p>{{fecha}}</p>
-            </div>
-
             {% if tarea[3] == 1 %}
             <div class="alert alert-danger text-center text-uppercase" role="alert">
                 <h5>Tarea urgente e importante</h5>
@@ -50,6 +35,20 @@
             </div>
             {% endif %}
 
+            <div class="mb-5">
+                <h4>Título:</h4>
+                <h5>{{tarea[1]}}</h5>
+            </div>
+
+            <div class="mb-5">
+                <h4>Descripción:</h4>
+                <p>{{tarea[2]}}</p>
+            </div>
+
+            <div class="mb-5">
+                <h4>Creada:</h4>
+                <p>{{fecha}}</p>
+            </div>
 
             {% endfor %}
 
