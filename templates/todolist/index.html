@@ -25,7 +25,7 @@
             <div class="d-flex flex-row justify-content-between mb-3">
                 <li class="list-group-item col">{{tarea[1]}}</li>
                 <div class="col-4 d-flex justify-content-evenly align-items-center">
-                    <a class="btn btn-success btn-sm" href="/complete/{{tarea[0]}}">
+                    <a class="btn btn-success btn-sm" href="/complete/{{tarea[0]}}" onclick="return confirm('Está seguro que la tarea ha sido completada?')">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-check" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                             <path d="M5 12l5 5l10 -10" />
@@ -52,14 +52,14 @@
             <div class="d-flex flex-row justify-content-between mb-3">
                 <li class="list-group-item col">{{tarea[1]}}</li>
                 <div class="col-4 d-flex justify-content-evenly align-items-center">
-                    <a class="btn btn-success btn-sm" href="/complete/{{tarea[0]}}">
+                    <a class="btn btn-success btn-sm" href="/complete/{{tarea[0]}}"onclick="return confirm('Está seguro que la tarea ha sido completada?')">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-check" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                             <path d="M5 12l5 5l10 -10" />
                           </svg>
                     </a>
-                    <a class="btn btn-outline-secondary btn-sm" href="/task/{{tarea[0]}}">Ver</a>
-                    <a class="btn btn-outline-primary btn-sm" href="/edit/{{tarea[0]}}">Editar</a>
+                    <a class="btn btn-outline-primary btn-sm" href="/task/{{tarea[0]}}">Ver</a>
+                    <a class="btn btn-outline-success btn-sm" href="/edit/{{tarea[0]}}">Editar</a>
                     <a class="btn btn-outline-danger btn-sm" href="/destroy/{{tarea[0]}}"
                         onclick="return confirm('Confirma que desea eliminar la tarea?')">X</a>
                 </div>
@@ -79,7 +79,7 @@
             <div class="d-flex flex-row justify-content-between mb-3">
                 <li class="list-group-item col">{{tarea[1]}}</li>
                 <div class="col-4 d-flex justify-content-evenly align-items-center">
-                    <a class="btn btn-success btn-sm" href="/complete/{{tarea[0]}}">
+                    <a class="btn btn-success btn-sm" href="/complete/{{tarea[0]}}" onclick="return confirm('Está seguro que la tarea ha sido completada?')">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-check" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                             <path d="M5 12l5 5l10 -10" />
@@ -105,7 +105,7 @@
             <div class="d-flex flex-row justify-content-between mb-3">
                 <li class="list-group-item col">{{tarea[1]}}</li>
                 <div class="col-4 d-flex justify-content-evenly align-items-center">
-                    <a class="btn btn-success btn-sm" href="/complete/{{tarea[0]}}">
+                    <a class="btn btn-success btn-sm" href="/complete/{{tarea[0]}}" onclick="return confirm('Está seguro que la tarea ha sido completada?')">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-check" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                             <path d="M5 12l5 5l10 -10" />
