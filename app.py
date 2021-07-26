@@ -9,7 +9,7 @@ app.secret_key="EstaEsLaClaveSecreta"
 mysql = MySQL()
 app.config['MYSQL_DATABASE_HOST']='localhost'
 app.config['MYSQL_DATABASE_USER']='root'
-app.config['MYSQL_DATABASE_PASSWORD']='Chirola02'
+app.config['MYSQL_DATABASE_PASSWORD']=''
 app.config['MYSQL_DATABASE_BD']='to_do_list'
 mysql.init_app(app)
 
@@ -53,8 +53,8 @@ def storage():
         flash('Datos incompletos. Debes llenar todos los campos del formulario')
         return redirect(url_for('create'))
 
-    sql = "INSERT INTO `to_do_list`.`task` (`id`, `title`, `description`, `type`, `datetime`) VALUES (NULL, %s, %s, %s, %s);"
-    datos=(_titulo, _descripcion, _prioridad, _fecha)
+    sql = "INSERT INTO `to_do_list`.`task` (`id`, `title`, `description`, `type`, `datetime`, `is_active`) VALUES (NULL, %s, %s, %s, %s, %s);"
+    datos=(_titulo, _descripcion, _prioridad, _fecha, True)
 
     conn = mysql.connect()
     cursor = conn.cursor()
@@ -105,10 +105,17 @@ def destroy(id):
 def complete(id):
     conn = mysql.connect()
     cursor = conn.cursor()
-    cursor.execute("UPDATE `to_do_list`.`task` SET `type`=5 WHERE id=%s;", (id))
+    cursor.execute("UPDATE `to_do_list`.`task` SET `is_active`=False WHERE id=%s;", (id))
     conn.commit()
     return redirect('/')
 
+@app.route('/restore/<int:id>')
+def restore(id):
+    conn = mysql.connect()
+    cursor = conn.cursor()
+    cursor.execute("UPDATE `to_do_list`.`task` SET `is_active`=True WHERE id=%s;", (id))
+    conn.commit()
+    return redirect('/')
 
 if __name__=='__main__':
     app.run(debug=True)
